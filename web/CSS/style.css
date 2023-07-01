@@ -1,0 +1,62 @@
+.quantity-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+}
+
+/* 数量显示 */
+.quantity-display {
+    counter-reset: quantity 0;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* 加减按钮 */
+.minus-btn,
+.plus-btn {
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 0.8;
+    background-color: #ececec;
+    color: #555;
+    border: none;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.minus-btn::before,
+.plus-btn::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: counter(quantity);
+    counter-increment: quantity;
+}
+
+.minus-btn::before {
+    content: "-";
+}
+
+.plus-btn::before {
+    content: "+";
+}
+
+/* 禁用状态 */
+.minus-btn[disabled],
+.plus-btn[disabled] {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.minus-btn[disabled]::before,
+.plus-btn[disabled]::before {
+    color: #aaa;
+}

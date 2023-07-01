@@ -1,0 +1,76 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: kube
+  Date: 2023/5/25
+  Time: 22:11
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+  <title>管理员界面</title>
+  <link type="text/css" rel="stylesheet" href="CSS/administrator.css">
+</head>
+<body>
+<div id="top">&nbsp;网&nbsp;上&nbsp;订&nbsp;餐&nbsp;平&nbsp;台&nbsp;——&nbsp;管&nbsp;理&nbsp;员&nbsp;界&nbsp;面<div id="topright">欢迎&nbsp;&nbsp;管理员&nbsp;&nbsp;进入系统&nbsp;&nbsp;<a href="login.jsp" id="w">退出&nbsp</a> </div> </div>
+<div class="box">
+  <ul class="left">
+    <li >门店管理
+      <ul>
+        <li><a href="mainWeb.jsp">门店介绍</a></li>
+      </ul>
+    </li>
+    <li >菜品管理
+      <ul>
+        <li><a href="addWeb.jsp">添加菜品</a></li>
+        <li><a href="controlWeb.jsp">菜品管理</a></li>
+      </ul>
+    </li>
+    <li>订单管理
+      <ul>
+        <li><a href="oderWeb.jsp">顾客订单</a></li>
+      </ul>
+    </li>
+    <li>配送管理
+      <ul>
+        <li><a href="goInfoWeb.jsp">配送信息</a></li>
+      </ul>
+    </li>
+    <li>管理员管理
+      <ul>
+        <li id="line"><a href="administratorInfo.jsp">管理员信息</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="right">
+    <p>当&nbsp;前&nbsp;位&nbsp;置&nbsp;>&nbsp;修&nbsp;改&nbsp;页&nbsp;面</p>
+    <hr  color="darkgray">
+    <%
+      response.setContentType("text/html;charset=utf-8");
+      request.setCharacterEncoding("utf-8");
+      response.setCharacterEncoding("utf-8");
+      int id= Integer.parseInt(request.getParameter("id"));
+      String name=request.getParameter("name");
+      String password=request.getParameter("password");
+    %>
+    <form action="UpdateAdServlet?flag=updateAd" method="post">
+      <fieldset>
+        <legend>修改管理员信息</legend>
+      <table>
+        <tr>
+          <td>编&nbsp;&nbsp;号:</td><td><input type='text' name='id' value="<%=id%>" readonly></td>
+        </tr>
+        <tr>
+          <td> 用户名:</td><td><input type='text' name='name' value="<%=name%>"></td>
+        </tr>
+        <tr>
+          <td>密&nbsp;&nbsp;码:</td><td><input type='text' name='password' value="<%=password%>"></td>
+        </tr>
+        <tr><td><input type='submit' value='保存'></td></tr>
+      </table>
+      </fieldset>
+    </form>
+  </div>
+</div>
+</body>
+</html>
